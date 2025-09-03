@@ -1,3 +1,6 @@
+#Aluno : Lucas Carvalho da Luz Moura
+#Matricula : 2020111816
+
 # Pacotes necessários (caso não tenha)
 if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(readr, dplyr, ggplot2, magrittr, plotly, scales, tidyr, lubridate, viridis)
