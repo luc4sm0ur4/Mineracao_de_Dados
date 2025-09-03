@@ -6,6 +6,12 @@ from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 from opacus import PrivacyEngine
 
+# --- TRECHO ADICIONADO ---
+# Detecta se a GPU com CUDA está disponível e a seleciona, caso contrário usa a CPU
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Usando o dispositivo: {device}")
+# -------------------------
+
 # --- ETAPA 1: Definições do VAE e Carregamento de Dados (Base da Parte 1) ---
 
 # Definir transformações para os dados
@@ -47,13 +53,14 @@ class VAE(nn.Module):
         return mu + eps * std
 
     def forward(self, x):
+        # AQUI ESTAVA O ERRO, AGORA CORRIGIDO
         h = self.encoder(x.view(-1, 784))
         mu = self.fc_mu(h)
         logvar = self.fc_logvar(h)
         z = self.reparameterize(mu, logvar)
         return self.decoder(z), mu, logvar
 
-# Função de Perda (Reconstrução + Divergência KL) [cite: 10]
+# Função de Perda (Reconstrução + Divergência KL)
 def loss_function(recon_x, x, mu, logvar):
     BCE = nn.functional.binary_cross_entropy(recon_x, x.view(-1, 784), reduction='sum')
     KLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
@@ -64,6 +71,7 @@ def loss_function(recon_x, x, mu, logvar):
 # Instanciar o modelo e o otimizador
 # É importante que o modelo seja instanciado ANTES de ser passado para o PrivacyEngine
 model_dp = VAE()
+model_dp.to(device)  # <-- MODIFICAÇÃO: Move o modelo para a GPU
 optimizer_dp = optim.Adam(model_dp.parameters(), lr=1e-3)
 
 # Configurar o PrivacyEngine do Opacus
@@ -75,8 +83,8 @@ model_dp, optimizer_dp, data_loader_dp = privacy_engine.make_private(
     module=model_dp,
     optimizer=optimizer_dp,
     data_loader=train_loader,
-    noise_multiplier=1.1, # Ajusta o nível de ruído [cite: 20]
-    max_grad_norm=1.0,    # Ajusta o clipping de gradientes [cite: 20]
+    noise_multiplier=1.1,
+    max_grad_norm=1.0,
 )
 
 print("Iniciando o treinamento com Privacidade Diferencial...")
@@ -86,7 +94,8 @@ def train_dp(epoch):
     model_dp.train()
     train_loss = 0
     for batch_idx, (data, _) in enumerate(data_loader_dp):
-        # Otimizador DP, integrado pelo PrivacyEngine [cite: 19]
+        data = data.to(device) # <-- MODIFICAÇÃO: Move os dados do lote para a GPU
+        # Otimizador DP, integrado pelo PrivacyEngine
         optimizer_dp.zero_grad()
         
         recon_batch, mu, logvar = model_dp(data)
@@ -98,7 +107,7 @@ def train_dp(epoch):
         # O passo do otimizador agora inclui o clipping e a adição de ruído
         optimizer_dp.step()
 
-    # Monitorar o consumo de privacidade (epsilon) ao final de cada época [cite: 21]
+    # Monitorar o consumo de privacidade (epsilon) ao final de cada época
     # Delta é geralmente definido como um número pequeno, menor que 1/N, onde N é o tamanho do dataset.
     epsilon = privacy_engine.get_epsilon(delta=1e-5)
     
@@ -118,6 +127,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
 def visualize_reconstructions(model, data_loader):
     model.eval()
     data, _ = next(iter(data_loader))
+    data = data.to(device) # <-- MODIFICAÇÃO: Move os dados de teste para a GPU
     with torch.no_grad():
         recon, _, _ = model(data)
 
@@ -126,10 +136,12 @@ def visualize_reconstructions(model, data_loader):
     fig.suptitle("Cima: Originais | Baixo: Reconstruídas com Privacidade Diferencial")
     for i in range(10):
         # Original
-        axes[0, i].imshow(data[i].view(28, 28), cmap='gray')
+        # MODIFICAÇÃO: Move o tensor para a CPU antes de visualizar
+        axes[0, i].imshow(data[i].cpu().view(28, 28), cmap='gray')
         axes[0, i].axis('off')
         # Reconstruída
-        axes[1, i].imshow(recon[i].view(28, 28), cmap='gray')
+        # MODIFICAÇÃO: Move o tensor para a CPU antes de visualizar
+        axes[1, i].imshow(recon[i].cpu().view(28, 28), cmap='gray')
         axes[1, i].axis('off')
     plt.show()
 
