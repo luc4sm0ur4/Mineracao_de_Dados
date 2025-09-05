@@ -5,11 +5,9 @@ from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 
-# --- TRECHO ADICIONADO ---
 # Detecta se a GPU com CUDA está disponível e a seleciona, caso contrário usa a CPU
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Usando o dispositivo: {device}")
-# -------------------------
 
 # Definir transformações para os dados
 transform = transforms.ToTensor()
@@ -63,7 +61,7 @@ def loss_function(recon_x, x, mu, logvar):
 
 # Instanciar o modelo e o otimizador
 vae = VAE()
-vae.to(device)  # <-- MODIFICAÇÃO: Move o modelo para a GPU
+vae.to(device)
 optimizer = optim.Adam(vae.parameters(), lr=1e-3)
 
 # Loop de Treinamento
@@ -71,7 +69,7 @@ def train(epoch):
     vae.train()
     train_loss = 0
     for batch_idx, (data, _) in enumerate(train_loader):
-        data = data.to(device)  # <-- MODIFICAÇÃO: Move os dados do lote para a GPU
+        data = data.to(device)
         optimizer.zero_grad()
         recon_batch, mu, logvar = vae(data)
         loss = loss_function(recon_batch, data, mu, logvar)
@@ -88,7 +86,7 @@ for epoch in range(1, 11):
 def visualize_reconstructions(model, data_loader):
     model.eval()
     data, _ = next(iter(data_loader))
-    data = data.to(device)  # <-- MODIFICAÇÃO: Move os dados de teste para a GPU
+    data = data.to(device)
     with torch.no_grad():
         recon, _, _ = model(data)
 
@@ -96,11 +94,11 @@ def visualize_reconstructions(model, data_loader):
     fig, axes = plt.subplots(nrows=2, ncols=10, figsize=(20, 4))
     for i in range(10):
         # Original
-        # MODIFICAÇÃO: Move o tensor para a CPU antes de visualizar
+        # Move o tensor para a CPU antes de visualizar
         axes[0, i].imshow(data[i].cpu().view(28, 28), cmap='gray')
         axes[0, i].axis('off')
         # Reconstruída
-        # MODIFICAÇÃO: Move o tensor para a CPU antes de visualizar
+        # Move o tensor para a CPU antes de visualizar
         axes[1, i].imshow(recon[i].cpu().view(28, 28), cmap='gray')
         axes[1, i].axis('off')
     plt.show()

@@ -6,18 +6,17 @@ from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 from opacus import PrivacyEngine
 
-# --- TRECHO ADICIONADO ---
 # Detecta se a GPU com CUDA está disponível e a seleciona, caso contrário usa a CPU
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Usando o dispositivo: {device}")
-# -------------------------
+
 
 # --- ETAPA 1: Definições do VAE e Carregamento de Dados (Base da Parte 1) ---
 
 # Definir transformações para os dados
 transform = transforms.ToTensor()
 
-# Baixar e carregar o dataset de treinamento
+# Função que baixa e carrega o dataset de treinamento
 # NOTA: O batch size deve ser consistente para o PrivacyEngine funcionar corretamente.
 train_dataset = datasets.MNIST(root='./data', train=True, download=True, transform=transform)
 train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True)
@@ -53,7 +52,6 @@ class VAE(nn.Module):
         return mu + eps * std
 
     def forward(self, x):
-        # AQUI ESTAVA O ERRO, AGORA CORRIGIDO
         h = self.encoder(x.view(-1, 784))
         mu = self.fc_mu(h)
         logvar = self.fc_logvar(h)
@@ -94,7 +92,7 @@ def train_dp(epoch):
     model_dp.train()
     train_loss = 0
     for batch_idx, (data, _) in enumerate(data_loader_dp):
-        data = data.to(device) # <-- MODIFICAÇÃO: Move os dados do lote para a GPU
+        data = data.to(device)
         # Otimizador DP, integrado pelo PrivacyEngine
         optimizer_dp.zero_grad()
         
@@ -127,7 +125,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
 def visualize_reconstructions(model, data_loader):
     model.eval()
     data, _ = next(iter(data_loader))
-    data = data.to(device) # <-- MODIFICAÇÃO: Move os dados de teste para a GPU
+    data = data.to(device)
     with torch.no_grad():
         recon, _, _ = model(data)
 
@@ -136,11 +134,9 @@ def visualize_reconstructions(model, data_loader):
     fig.suptitle("Cima: Originais | Baixo: Reconstruídas com Privacidade Diferencial")
     for i in range(10):
         # Original
-        # MODIFICAÇÃO: Move o tensor para a CPU antes de visualizar
         axes[0, i].imshow(data[i].cpu().view(28, 28), cmap='gray')
         axes[0, i].axis('off')
         # Reconstruída
-        # MODIFICAÇÃO: Move o tensor para a CPU antes de visualizar
         axes[1, i].imshow(recon[i].cpu().view(28, 28), cmap='gray')
         axes[1, i].axis('off')
     plt.show()
