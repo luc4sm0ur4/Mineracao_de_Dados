@@ -104,6 +104,10 @@ Contribuições são sempre bem-vindas! Se você tiver sugestões para melhorar 
 4.  Fazer **Push** para a Branch (`git push origin feature/NovaAnalise`).
 5.  Abrir um **Pull Request**.
 
+## 📄 Licença
+
+Este projeto está sob a licença GPL-v3. Veja o arquivo [LICENSE](https://www.gnu.org/licenses/gpl-3.0.html) para detalhes.
+
 ## 👤 Autor
 
 - **Lucas Moura** - [luc4sm0ur4](https://github.com/luc4sm0ur4)
