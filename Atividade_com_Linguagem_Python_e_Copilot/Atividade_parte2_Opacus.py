@@ -1,3 +1,6 @@
+#Aluno : Lucas Carvalho da Luz Moura
+#Matricula : 2020111816
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
