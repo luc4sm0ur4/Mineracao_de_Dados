@@ -1,80 +1,69 @@
-# ⛏️ Mineração de Dados
+# ⛏️ Mineração de Dados: Um Portfólio Prático
 
-Bem-vindo! Este repositório é dedicado à aplicação prática de técnicas de Mineração de Dados. Aqui você encontrará códigos e análises desenvolvidos com o objetivo de explorar datasets, construir modelos preditivos e extrair insights valiosos. O foco principal é a utilização das linguagens **R** e **Python**.
+![Status do Projeto](https://img.shields.io/badge/status-em%20desenvolvimento-green?style=for-the-badge)
 
-## 🎯 Objetivo
+Bem-vindo! Este repositório é uma coleção de projetos e estudos de caso em **Mineração de Dados** e **Machine Learning**, implementados principalmente em **R** e **Python**. O objetivo é aplicar técnicas e algoritmos para extrair insights valiosos e construir modelos preditivos a partir de diversos datasets.
 
-O propósito deste projeto é servir como um portfólio e uma base de estudos em Data Mining, demonstrando a implementação de algoritmos de Machine Learning para resolver problemas reais. Cada pasta representa um projeto ou um estudo de caso, abordando desde o pré-processamento dos dados até a avaliação do modelo final.
+## 🎯 Sobre o Projeto
 
-## 📂 Estrutura do Repositório
+Este projeto funciona como um portfólio e uma base de conhecimento prático em Data Mining. Cada pasta representa um desafio específico, abordando desde a análise exploratória e pré-processamento de dados até a implementação e avaliação de modelos. É um registro contínuo do meu aprendizado e desenvolvimento na área.
 
-O projeto está organizado da seguinte maneira para facilitar a navegação:
+## 📚 Sumário
+* [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+* [Estrutura do Repositório](#-estrutura-do-repositório)
+* [Projetos em Destaque](#-projetos-em-destaque)
+* [Como Executar os Projetos](#-como-executar-os-projetos)
+* [Como Contribuir](#-como-contribuir)
+* [Licença](#-licença)
+* [Autor](#-autor)
 
-```
-/Mineracao_de_Dados
-|
-├── 📁 Atividade1_-_com_Linguagem_Python_e_Copilot/
-│   └── 📜 Atividade_parte1_VAE.py
-│   └── 📜 Atividade_parte2_Opacus.py
-│
-├── 📁 Atividade2_-_com_ Linguagem_R_(EDA)/
-│   └── 📜 atividade_com_EDA_e_R.r
-│
-├── 📁 3_Materials_Begin_Fraudulent_Sales_Case_Materials (6)/
-│   └── 📜 Error-checking-exercises_corrigido.R
-│   └── 📜 Fraudulent-Transactions-1_corrigido.R
-|
-├── 📁 Atividade4_-_4_Session_7_Continue_Fraudulent_Sales_Case_Materials/
-│   └── 📜 exportar_dado.r
-│   └── 📜 fluxograma_python.py
-|
-├── 📁 Atividade5_-_More_Materials_Algae_Bloom/
-│   └── 📜 Fluxo_trabalho.py
-└── README.md
-```
+## 🛠️ Tecnologias Utilizadas
 
-- **/datasets**: Contém os conjuntos de dados utilizados nos projetos.
-- **/Python**: Scripts e notebooks desenvolvidos em Python.
-- **/R**: Scripts e projetos desenvolvidos em R.
-
-## ⭐ Projetos em Destaque
-
-### Análise de Risco de Crédito com Regressão Logística
-
-Este projeto aborda um problema clássico de classificação: **prever a probabilidade de inadimplência de um cliente**. Utilizando o dataset `credit_risk.csv`, foram desenvolvidos dois modelos de Regressão Logística, um em R e outro em Python.
-
-O objetivo é classificar os clientes como "bons" ou "maus" pagadores com base em suas características (histórico de crédito, propósito do empréstimo, idade, etc.), ajudando na tomada de decisão para concessão de crédito.
-
-**Técnicas e Conceitos Abordados:**
-- Análise Exploratória de Dados (EDA)
-- Pré-processamento e Limpeza de Dados
-- Implementação de Regressão Logística
-- Treinamento e Teste de Modelo
-- Avaliação de performance do classificador
-
-## 🛠️ Ferramentas e Bibliotecas
-
-As principais tecnologias utilizadas neste repositório são:
+As principais ferramentas e linguagens que você encontrará aqui são:
 
 - **Linguagens**:
   - ![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
   - ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 - **Bibliotecas Python**:
-  - **Pandas** e **Numpy**: Para manipulação e análise de dados.
-  - **Scikit-learn**: Para a construção do modelo de Machine Learning.
-  - **Matplotlib** e **Seaborn**: Para visualização de dados.
-  - **Jupyter Notebook**: Para o desenvolvimento interativo.
+  - **Análise de Dados**: `Pandas`, `NumPy`
+  - **Machine Learning**: `Scikit-learn`, `Opacus`
+  - **Visualização**: `Matplotlib`, `Seaborn`
+  - **Desenvolvimento**: `Jupyter Notebook`
 
 - **Pacotes R**:
-  - **dplyr** e **readr**: Para manipulação de dados.
-  - **ggplot2**: Para visualizações gráficas.
-  - **caTools**: Para divisão dos dados em treino e teste.
-  - **caret**: Para avaliação de modelos.
+  - **Manipulação de Dados**: `dplyr`, `readr`
+  - **Visualização**: `ggplot2`
+  - **Modelagem**: `caTools`, `caret`
+
+## 📂 Estrutura do Repositório
+
+O repositório está organizado em pastas, onde cada uma corresponde a uma atividade ou estudo de caso. Abaixo está um resumo do conteúdo de cada diretório:
+
+| Pasta | Linguagem(ns) | Descrição |
+| :--- | :--- | :--- |
+| `Atividade1_-_...` | `Python` | Estudo sobre privacidade diferencial com **Variational Autoencoders (VAE)** e a biblioteca **Opacus**. |
+| `Atividade2_-_...` | `R` | Foco em **Análise Exploratória de Dados (EDA)** para extrair insights iniciais de um dataset. |
+| `3_Materials_...` | `R` | Início do estudo de caso sobre **detecção de transações fraudulentas**, com foco na verificação e correção de erros nos dados. |
+| `Atividade4_-_...` | `R` / `Python` | Continuação do caso de detecção de fraudes, incluindo scripts para exportação de dados e criação de fluxogramas de processo. |
+| `Atividade5_-_...` | `Python` | Estudo de caso completo sobre a **previsão de proliferação de algas** (Algae Bloom), implementando um fluxo de trabalho de Machine Learning. |
+
+## ⭐ Projetos em Destaque
+
+### 📌 Análise de Risco de Crédito com Regressão Logística
+
+Este projeto aborda um problema clássico de classificação: **prever a probabilidade de inadimplência de um cliente**. Utilizando um dataset de risco de crédito, o objetivo é classificar os clientes como "bons" ou "maus" pagadores, auxiliando na tomada de decisão para concessão de crédito.
+
+**Técnicas e Conceitos Abordados:**
+- Análise Exploratória de Dados (EDA)
+- Pré-processamento e Limpeza de Dados
+- Implementação de Regressão Logística em R e Python
+- Treinamento e Teste de Modelo (divisão treino/teste)
+- Avaliação de performance do classificador (Matriz de Confusão, Acurácia, etc.)
 
 ## 🚀 Como Executar os Projetos
 
-Para rodar os projetos em sua máquina local, siga os passos:
+Para clonar e executar os projetos localmente, siga os passos abaixo.
 
 1.  **Clone o repositório:**
     ```bash
@@ -82,40 +71,44 @@ Para rodar os projetos em sua máquina local, siga os passos:
     cd Mineracao_de_Dados
     ```
 
-2.  **Para o projeto em Python:**
-    - É recomendado criar um ambiente virtual.
-    - Instale as bibliotecas necessárias:
+2.  **Para projetos em Python:**
+    - É recomendado o uso de um ambiente virtual (`venv` ou `conda`).
+    - Instale as dependências:
       ```bash
-      pip install pandas numpy scikit-learn matplotlib seaborn jupyter
+      pip install pandas numpy scikit-learn matplotlib seaborn jupyterlab
       ```
-    - Abra o Jupyter Notebook:
+    - Inicie o Jupyter:
       ```bash
-      jupyter notebook
+      jupyter lab
       ```
-    - Navegue até `Python/` e abra o arquivo `.ipynb`.
+    - Navegue até a pasta do projeto desejado e abra o notebook (`.ipynb`).
 
-3.  **Para o projeto em R:**
-    - Abra o RStudio.
-    - Instale os pacotes necessários que estão no início do script:
+3.  **Para projetos em R:**
+    - Abra o RStudio ou seu editor de preferência.
+    - Instale os pacotes listados no início de cada script `.R`:
       ```r
+      # Exemplo de pacotes a serem instalados
       install.packages(c("dplyr", "ggplot2", "caTools", "caret"))
       ```
-    - Execute o script `.R` localizado na pasta `R/`.
+    - Execute o script.
 
-## 🤝 Como Contribuir
+## 🙌 Como Contribuir
 
-Contribuições são sempre bem-vindas! Se você tiver sugestões para melhorar os projetos existentes ou quiser adicionar novos algoritmos e análises, sinta-se à vontade para:
+Contribuições são muito bem-vindas! Se você tem sugestões para melhorar os projetos ou quer adicionar novas análises, sinta-se à vontade para:
 
 1.  Fazer um **Fork** do projeto.
 2.  Criar uma nova **Branch** (`git checkout -b feature/NovaAnalise`).
 3.  Fazer **Commit** de suas mudanças (`git commit -m 'Adiciona nova análise de clusterização'`).
-4.  Fazer **Push** para a Branch (`git push origin feature/NovaAnalise`).
+4.  Fazer **Push** para a sua Branch (`git push origin feature/NovaAnalise`).
 5.  Abrir um **Pull Request**.
 
 ## 📄 Licença
 
-Este projeto está sob a licença GPL-v3. Veja o arquivo [LICENSE](https://www.gnu.org/licenses/gpl-3.0.html) para detalhes.
+Este projeto está distribuído sob a licença GPL-v3. Veja o arquivo [LICENSE](https://www.gnu.org/licenses/gpl-3.0.html) para mais detalhes.
 
 ## 👤 Autor
 
-- **Lucas Moura** - [luc4sm0ur4](https://github.com/luc4sm0ur4)
+Feito com ❤️ por **Lucas Moura**.
+
+- **GitHub**: [@luc4sm0ur4](https://github.com/luc4sm0ur4)
+- **LinkedIn**: [Lucas Moura](https://linkedin.com/in/lucasmoura112)
