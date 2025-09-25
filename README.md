@@ -13,15 +13,23 @@ O projeto está organizado da seguinte maneira para facilitar a navegação:
 ```
 /Mineracao_de_Dados
 |
-├── 📁 datasets/
-│   └── 📄 credit_risk.csv
+├── 📁 Atividade1_-_com_Linguagem_Python_e_Copilot/
+│   └── 📜 Atividade_parte1_VAE.py
+│   └── 📜 Atividade_parte2_Opacus.py
 │
-├── 📁 Python/
-│   └── 📓 Regressão Logística - Risco de Crédito.ipynb
+├── 📁 Atividade2_-_com_ Linguagem_R_(EDA)/
+│   └── 📜 atividade_com_EDA_e_R.r
 │
-├── 📁 R/
-│   └── 📜 Regressão Logística com dados de Risco de Crédito.R
-│
+├── 📁 3_Materials_Begin_Fraudulent_Sales_Case_Materials (6)/
+│   └── 📜 Error-checking-exercises_corrigido.R
+│   └── 📜 Fraudulent-Transactions-1_corrigido.R
+|
+├── 📁 Atividade4_-_4_Session_7_Continue_Fraudulent_Sales_Case_Materials/
+│   └── 📜 exportar_dado.r
+│   └── 📜 fluxograma_python.py
+|
+├── 📁 Atividade5_-_More_Materials_Algae_Bloom/
+│   └── 📜 Fluxo_trabalho.py
 └── README.md
 ```
 
