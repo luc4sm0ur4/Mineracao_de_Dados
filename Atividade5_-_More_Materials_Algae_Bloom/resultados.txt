@@ -1,0 +1,61 @@
+
+==========================================
+  Resultados da Modelagem para: a1
+==========================================
+  -> Linear Regression: NMSE Médio = 0.8497
+  -> Decision Tree: NMSE Médio = 1.1212
+  -> Random Forest: NMSE Médio = 0.6838
+
+==========================================
+  Resultados da Modelagem para: a2
+==========================================
+  -> Linear Regression: NMSE Médio = 1.0295
+  -> Decision Tree: NMSE Médio = 2.0838
+  -> Random Forest: NMSE Médio = 0.9282
+
+==========================================
+  Resultados da Modelagem para: a3
+==========================================
+  -> Linear Regression: NMSE Médio = 1.2655
+  -> Decision Tree: NMSE Médio = 4.8734
+  -> Random Forest: NMSE Médio = 1.4398
+
+==========================================
+  Resultados da Modelagem para: a4
+==========================================
+  -> Linear Regression: NMSE Médio = 2.2630
+  -> Decision Tree: NMSE Médio = 2.3143
+  -> Random Forest: NMSE Médio = 1.9910
+
+==========================================
+  Resultados da Modelagem para: a5
+==========================================
+  -> Linear Regression: NMSE Médio = 1.1461
+  -> Decision Tree: NMSE Médio = 2.0544
+  -> Random Forest: NMSE Médio = 0.9371
+
+==========================================
+  Resultados da Modelagem para: a6
+==========================================
+  -> Linear Regression: NMSE Médio = 1.1814
+  -> Decision Tree: NMSE Médio = 2.4324
+  -> Random Forest: NMSE Médio = 1.3128
+
+==========================================
+  Resultados da Modelagem para: a7
+==========================================
+  -> Linear Regression: NMSE Médio = 1.6753
+  -> Decision Tree: NMSE Médio = 4.1781
+  -> Random Forest: NMSE Médio = 1.5958
+
+--- Fim da Execução ---
+
+Resumo dos Resultados (NMSE Médio):
+    Linear Regression  Decision Tree  Random Forest
+a1           0.849707       1.121158       0.683795
+a2           1.029507       2.083798       0.928244
+a3           1.265483       4.873428       1.439797
+a4           2.263035       2.314288       1.990981
+a5           1.146138       2.054364       0.937144
+a6           1.181431       2.432371       1.312805
+a7           1.675296       4.178139       1.595836
