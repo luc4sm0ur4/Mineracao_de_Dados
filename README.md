@@ -108,7 +108,7 @@ Este projeto está distribuído sob a licença GPL-v3. Veja o arquivo [LICENSE](
 
 ## 👤 Autor
 
-Feito com ❤️ por **Lucas Moura**.
+Feito por **Lucas Moura**.
 
 - **GitHub**: [@luc4sm0ur4](https://github.com/luc4sm0ur4)
 - **LinkedIn**: [Lucas Moura](https://linkedin.com/in/lucasmoura112)
