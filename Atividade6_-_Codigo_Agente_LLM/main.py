@@ -9,7 +9,6 @@ from datetime import datetime
 import json
 import time
 
-# Agente que responde perguntas
 class PerguntaAgente:
     def __init__(self):
         self.agente = Agent(model=Ollama(id="gemma3n:e4b"), markdown=False)
@@ -18,7 +17,6 @@ class PerguntaAgente:
         resposta = self.agente.run(pergunta)
         return resposta.content if hasattr(resposta, 'content') else resposta
 
-# Agente que gera resposta JSON
 class RespostaJSONAgente:
     def gerar_json(self, pergunta, resposta, tempo_decorrido):
         resultado = {
@@ -32,7 +30,6 @@ if __name__ == "__main__":
     pergunta_agente = PerguntaAgente()
     json_agente = RespostaJSONAgente()
 
-    # Primeira pergunta
     pergunta1 = "Qual foi os primeiros jogadores do Flamengo?"
     inicio_1 = time.perf_counter()
     resp1 = pergunta_agente.responder(pergunta1)
@@ -41,7 +38,6 @@ if __name__ == "__main__":
     print("Resposta 1 em JSON:")
     print(json_agente.gerar_json(pergunta1, resp1, tempo_1))
 
-    # Segunda pergunta
     pergunta2 = "Qual é a capital do Tocantins?"
     inicio_2 = time.perf_counter()
     resp2 = pergunta_agente.responder(pergunta2)
