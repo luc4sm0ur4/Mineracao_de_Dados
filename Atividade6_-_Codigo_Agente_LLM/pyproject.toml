@@ -3,10 +3,17 @@ name = "min-dados"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 dependencies = [
-    "agno",
-    "ollama",
-    "openai",
+    "agno>=2.1.10",
+    "google-genai>=1.46.0",
+    "lxml>=6.0.2",
+    "mcp>=1.21.0",
+    "ollama>=0.6.0",
+    "openai>=2.7.1",
+    "pandas>=2.3.3",
+    "playwright>=1.55.0",
     "python-dotenv>=1.1.1",
+    "tabulate>=0.9.0",
+    "yfinance>=0.2.66",
 ]
